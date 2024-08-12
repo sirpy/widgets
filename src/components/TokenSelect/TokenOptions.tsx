@@ -58,6 +58,7 @@ const OnHover = styled.div<{ hover: number }>`
   position: absolute;
   top: ${({ hover }) => hover * ITEM_SIZE}px;
   width: 100%;
+  display: none;
 `
 
 interface TokenOptionProps {

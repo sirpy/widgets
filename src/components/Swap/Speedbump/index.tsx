@@ -11,9 +11,9 @@ import { ThemedText } from 'theme'
 const SpeedBumpWrapper = styled(Column)`
   align-items: stretch;
   display: flex;
-  height: 100%;
+  height: auto;
   justify-content: space-between;
-  max-width: 420px;
+  max-width: auto;
   padding: 1rem;
   text-align: center;
 `

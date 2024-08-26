@@ -297,7 +297,7 @@ export function SummaryDialog(props: SummaryDialogProps) {
 
   return (
     <Column
-      style={{ minWidth: isPageCentered ? Math.min(MIN_PAGE_CENTERED_DIALOG_WIDTH, width) : 'auto', height: '100%' }}
+      style={{ minWidth: isPageCentered ? Math.min(MIN_PAGE_CENTERED_DIALOG_WIDTH, width) : 'auto', height: 'auto' }}
       ref={setBoundary}
     >
       {showSpeedbump && props.impact ? (

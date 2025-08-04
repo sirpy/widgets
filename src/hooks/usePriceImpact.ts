@@ -13,13 +13,23 @@ export interface PriceImpact {
 
 export function usePriceImpact(trade?: InterfaceTrade): PriceImpact | undefined {
   return useMemo(() => {
-    const marketPriceImpact = trade ? computeRealizedPriceImpact(trade) : undefined
-    return marketPriceImpact
-      ? {
-          percent: marketPriceImpact,
-          warning: getPriceImpactWarning(marketPriceImpact),
-        }
-      : undefined
+    try {
+      const marketPriceImpact = trade ? computeRealizedPriceImpact(trade) : undefined
+      
+      return marketPriceImpact
+        ? {
+            percent: marketPriceImpact,
+            warning: getPriceImpactWarning(marketPriceImpact),
+          }
+        : undefined
+    } catch (error) {
+      // Handle any errors in price impact calculation
+      console.warn('Error calculating price impact:', error)
+      return {
+        percent: new Percent(0, 100), // Default to 0%
+        warning: 'error',
+      }
+    }
   }, [trade])
 }
 
